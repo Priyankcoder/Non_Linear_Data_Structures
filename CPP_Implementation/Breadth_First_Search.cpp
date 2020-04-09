@@ -52,7 +52,7 @@ class Graph{
    void dfs(int s){
 	   
 	   visited[s] = true;
-	   //cout<<s<<"\n";       print the traversed vertex 
+	   //cout<<s<<"\n";      // print the traversed vertex 
 	   for(int i = 0; i < adj[s].size(); i++)
 	   {
 		   if (visited[adj[s][i]] == false)
