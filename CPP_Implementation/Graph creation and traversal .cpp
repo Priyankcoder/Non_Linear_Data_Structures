@@ -1,3 +1,6 @@
+//This is a class based approach to create graph but It is always better to implement graph by declaring visited arr and adjacency list globally in coding question that 
+//way you don't need to pass visited arr and adjacency list explicitly in each function to make changes in the graph.
+
 #include <iostream>
 #include<bits/stdc++.h>
 using namespace std;
