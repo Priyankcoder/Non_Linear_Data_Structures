@@ -1,3 +1,6 @@
+//Note:  if question asks to print edges of mst then It is better to implement kruskal instead of prim's algorithm bcz prim's don't keep track of traversed edges in order.
+//But if a question asked to print sum of edges in minimum spanning tree then use prim's algorithm as it is easy to implement.
+
 #include<bits/stdc++.h>
 #define fo(i,n) for(i=0;i<n;i++)
 #define ll long long;
