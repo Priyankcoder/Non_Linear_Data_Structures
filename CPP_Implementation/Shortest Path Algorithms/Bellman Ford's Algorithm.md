@@ -9,13 +9,13 @@ updated distance of b =  assumed distance of  node a+distance between node a and
 
 It is similar to Dijkstra's algorithm but it can work with graphs in which edges can have negative weights.
 ## Time Complexity:
-It is O(no. of edges*(|v|-1)) where |v| represents no. of vertices.
+It is **O(no. of edges*(v-1))** where v represents no. of vertices.
 *  For completed graph:<br>
-no. of edges = n(n-1)/2 Where n is no. of given nodes<br> because in connected graph, each vertex is connected with every other node.<br>
-So. time complexity will be (n(n-1)/2)*n which is equivalent to **O(n<sup>3</sup>)**
+**no. of edges = v(v-1)/2** <br> because in connected graph, each vertex is connected with every other node.<br>
+So. time complexity will be **(v(v-1)/2)*v** which is equivalent to ***O(v<sup>3</sup>)***
 * For Graph incomplete graphs:<br>
-no. of edges = n Where n is no. of given nodes<br> 
-So. time complexity will be n*n which is equivalent to **O(n<sup>2</sup>)**
+**no. of edges = v** <br> 
+So. time complexity will be **v*(v-1)** which is equivalent to ***O(v<sup>2</sup>)***
 
 ## Advantage Of Bellman Ford Algorithm:
 * It can calculate the shortest path in the graphs having negative weight edges whereas Dijkstra can't.
@@ -47,17 +47,16 @@ for(int i = 0; i < NODES; i++){
 for(int i = 0; i < EDGES; i++){
     v[i].clear();
 }
-int n, start_node, end_node, dist;
-cin >> n;
-
-for(int i = 0; i < n; i++){
+int nodes, edges, start_node, end_node, dist;
+cin >> nodes >> edges;
+for(int i = 0; i < edges; i++){
     cin >> start_node >> end_node >> dist;
     v[i].push_back(start_node);
     v[i].push_back(end_node);
     v[i].push_back(dist);
 }
-dis[1] = 0; //Here index represent the node (Replace 1 with 0 if min. node is 1 ).
-for(int i = 0; i < n-1; i++){
+dis[1] = 0; //Assuming the source node is 1.
+for(int i = 0; i < nodes-1; i++){
     int j = 0;
     while(v[j].size() != 0){
         if(dis[v[j][0]]+v[j][2]<dis[v[j][1]]){
@@ -66,7 +65,7 @@ for(int i = 0; i < n-1; i++){
         j++;
     }
 }
-for(int i = 1; i <= n; i++){
+for(int i = 1; i <= nodes; i++){
     cout<< dis[i] << "\n";
 }
 return 0;
