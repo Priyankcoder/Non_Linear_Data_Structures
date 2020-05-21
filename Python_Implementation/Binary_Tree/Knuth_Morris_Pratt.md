@@ -4,7 +4,7 @@ It's used as DNA matching algorithm.
 
 ## Python Implementation:
 
-```
+``` python
 # Utility function to calculate array to store 
 # largest prefix in suffix until the ith
 #  index of string at index i.
