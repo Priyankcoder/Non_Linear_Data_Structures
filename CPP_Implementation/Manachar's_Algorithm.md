@@ -1,10 +1,16 @@
+# Manacher's Algorithm( Longest palindrome in string)
+Manacher's Algorithm has one single application. It is used to find the Longest Palindromic Sub-string in any string. This algorithm is required to solve sub-problems of some very hard problems.
+
+## Implementation in c++
+``` c++
 #include <bits/stdc++.h>
 using namespace std;
 #define SIZE 1000000 + 5
 
 int P[SIZE];
 
-// Transform S into new string with special characters inserted.
+// Transform S into new string with special
+// characters inserted.
 string convertToNewString(const string &s) {
     string newString = "@";
 
@@ -18,10 +24,12 @@ string convertToNewString(const string &s) {
 
 string longestPalindromeSubstring(const string &s) {
     string Q = convertToNewString(s);
-    int c = 0, r = 0;                // current center, right limit
+    int c = 0, r = 0;               
+    // current center, right limit
 
     for (int i = 1; i < Q.size() - 1; i++) {
-        // find the corresponding letter in the palidrome subString
+    // find the corresponding letter in
+   // the palidrome subString
         int iMirror = c - (i - c);
 
         if(r > i) {
@@ -33,14 +41,16 @@ string longestPalindromeSubstring(const string &s) {
             P[i]++;
         }
 
-        // Update c,r in case if the palindrome centered at i expands past r,
+        // Update c,r in case if the palindrome 
+       //centered at i expands past r,
         if (i + P[i] > r) {
             c = i;              // next center = i
             r = i + P[i];
         }
     }
 
-    // Find the longest palindrome length in p.
+    // Find the longest palindrome length 
+    //in p.
 
     int maxPalindrome = 0;
     int centerIndex = 0;
@@ -54,8 +64,11 @@ string longestPalindromeSubstring(const string &s) {
     }
 
     cout << maxPalindrome << "\n";
-    return s.substr( (centerIndex - 1 - maxPalindrome) / 2, maxPalindrome);
- //Subtracted 1 for @ and divided it by 2 because the   index in s will be of half of Q as Q contains #. 
+    return s.substr( (centerIndex - 1 - 
+maxPalindrome) / 2, maxPalindrome);
+ //Subtracted 1 for @ and divided it
+// by 2 because the   index in s will be of half 
+//of Q as Q contains #. 
 }
 
 int main() {
@@ -64,3 +77,6 @@ int main() {
     cout << longestPalindromeSubstring(s);
     return 0;
 }
+```
+## Time Complexity
+Time complexity is O(2*n) which is equivalent to **O(n)**.
